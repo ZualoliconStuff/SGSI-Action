@@ -44,7 +44,7 @@ env:
   GHR: ${{ github.event.inputs.GHR }}
   SF: ${{ github.event.inputs.SF }}
   WET: ${{ github.event.inputs.WET }}
-
+  TMP: ${{ github.event.inputs.TMP }}
 jobs:
   build:
     runs-on: ubuntu-latest
