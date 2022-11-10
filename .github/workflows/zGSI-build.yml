@@ -31,6 +31,10 @@ on:
         description: 'Upload to GitHub Release'
         required: true
         default: 'false'
+      TMP:
+        description: 'Upload to Temp.sh'
+        required: true
+        default: 'false'
 
 env:              
   ROM_URL: ${{ github.event.inputs.ROM_URL }}
@@ -119,3 +123,10 @@ jobs:
            #body: Use actions auto bulid
          env:
             GH_TOKEN: ${{ secrets.GH_TOKEN }}
+
+       - name: Upload SGSI to Temp.sh...
+         continue-on-error: true
+         if: env.TMP == 'true' 
+         run: |
+           cd SGSIs/output
+           curl -T *.img.gz tenp.sh
