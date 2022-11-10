@@ -129,4 +129,4 @@ jobs:
          if: env.TMP == 'true' 
          run: |
            cd SGSIs/output
-           curl -T *.img.gz tenp.sh
+           curl -T *.img.gz temp.sh
